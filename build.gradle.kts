@@ -41,6 +41,15 @@ dependencies {
 	//implementation("com.github.asheragy:stocks-core:-SNAPSHOT")
 }
 
+sourceSets {
+	create("integrationTest") {
+		java.srcDir("src/testIntegration/kotlin")
+		resources.srcDir("src/testIntegration/resources")
+		compileClasspath += sourceSets["main"].output + configurations["testRuntimeClasspath"]
+		runtimeClasspath += output + compileClasspath + sourceSets["test"].runtimeClasspath
+	}
+}
+
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
@@ -50,4 +59,12 @@ tasks.withType<KotlinCompile> {
 		freeCompilerArgs = listOf("-Xjsr305=strict")
 		jvmTarget = "1.8"
 	}
+}
+
+task<Test>("integrationTest") {
+	description = "Runs the integration tests"
+	group = "verification"
+	testClassesDirs = sourceSets["integrationTest"].output.classesDirs
+	classpath = sourceSets["integrationTest"].runtimeClasspath
+	mustRunAfter(tasks["test"])
 }
