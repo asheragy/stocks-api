@@ -1,6 +1,6 @@
 package org.cerion.stocksapi.controllers
 
-import org.cerion.stocks.core.model.Symbol
+import org.cerion.stocksapi.database.Symbol
 import org.cerion.stocksapi.services.SymbolService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity

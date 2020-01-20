@@ -26,6 +26,6 @@ internal class SymbolControllerIntegrationTest {
         val symbol = response.body!![0] as LinkedHashMap<*, *>
 
         assertEquals(HttpStatus.OK, response.statusCode)
-        assertEquals("SPY", symbol["symbol"])
+        assertEquals("SPY", symbol["id"])
     }
 }

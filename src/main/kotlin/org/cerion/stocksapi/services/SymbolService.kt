@@ -1,8 +1,9 @@
 package org.cerion.stocksapi.services
 
-import org.cerion.stocks.core.model.Symbol
+
 import org.cerion.stocks.core.web.clients.Tiingo
 import org.cerion.stocksapi.StocksApiApplication
+import org.cerion.stocksapi.database.Symbol
 import org.cerion.stocksapi.database.SymbolRepository
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -15,7 +16,7 @@ class SymbolService @Autowired constructor(val repo: SymbolRepository) {
     private val logger: Logger = LoggerFactory.getLogger(SymbolService::class.java)
 
     fun getAll(): List<Symbol> {
-        return repo.findAll().map { it.convert() }
+        return repo.findAll()
     }
 
     fun get(id: String): Symbol? {
@@ -28,7 +29,7 @@ class SymbolService @Autowired constructor(val repo: SymbolRepository) {
                 null
         }
 
-        return result?.convert()
+        return result
     }
 
     fun delete(id: String): Boolean {
@@ -41,5 +42,5 @@ class SymbolService @Autowired constructor(val repo: SymbolRepository) {
 
 }
 
-fun org.cerion.stocksapi.database.Symbol.convert(): Symbol = Symbol(id, name, exchange)
-fun Symbol.convert(): org.cerion.stocksapi.database.Symbol = org.cerion.stocksapi.database.Symbol(symbol, name?: "", exchange?: "")
+//fun org.cerion.stocksapi.database.Symbol.convert(): Symbol = Symbol(id, name, exchange)
+fun org.cerion.stocks.core.model.Symbol.convert(): Symbol = Symbol(symbol, name?: "", exchange?: "")
