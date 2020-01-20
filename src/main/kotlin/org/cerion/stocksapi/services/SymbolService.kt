@@ -3,8 +3,8 @@ package org.cerion.stocksapi.services
 
 import org.cerion.stocks.core.web.clients.Tiingo
 import org.cerion.stocksapi.StocksApiApplication
-import org.cerion.stocksapi.database.Symbol
-import org.cerion.stocksapi.database.SymbolRepository
+import org.cerion.stocksapi.entities.Symbol
+import org.cerion.stocksapi.repository.SymbolRepository
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired

@@ -1,7 +1,7 @@
 package org.cerion.stocksapi
 
-import org.cerion.stocksapi.database.Symbol
-import org.cerion.stocksapi.database.SymbolRepository
+import org.cerion.stocksapi.entities.Symbol
+import org.cerion.stocksapi.repository.SymbolRepository
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.ApplicationArguments
 import org.springframework.boot.ApplicationRunner

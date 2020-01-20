@@ -1,6 +1,6 @@
 package org.cerion.stocksapi.controllers
 
-import org.cerion.stocksapi.database.Symbol
+import org.cerion.stocksapi.entities.Symbol
 import org.cerion.stocksapi.services.SymbolService
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
