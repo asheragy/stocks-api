@@ -29,6 +29,8 @@ dependencies {
 	runtimeOnly("com.h2database:h2")
 
 	testImplementation("org.junit.jupiter:junit-jupiter:5.4.2")
+	testImplementation("org.mockito:mockito-inline:2.13.0")
+	testImplementation("com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0")
 	testImplementation("org.springframework.boot:spring-boot-starter-test") {
 		exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
 	}

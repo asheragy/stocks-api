@@ -1,5 +1,7 @@
 package org.cerion.stocksapi
 
+import org.cerion.stocks.core.web.CombinedDataAPI
+import org.cerion.stocks.core.web.clients.YahooFinance
 import org.cerion.stocksapi.entities.Symbol
 import org.cerion.stocksapi.repository.SymbolRepository
 import org.springframework.beans.factory.annotation.Autowired
@@ -7,6 +9,7 @@ import org.springframework.boot.ApplicationArguments
 import org.springframework.boot.ApplicationRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
+import org.springframework.context.annotation.Bean
 import org.springframework.stereotype.Component
 import java.io.FileInputStream
 import java.util.*
@@ -30,6 +33,7 @@ class StocksApiApplication {
 fun main(args: Array<String>) {
 	runApplication<StocksApiApplication>(*args)
 }
+
 
 @Component
 class DataLoader @Autowired constructor(private val repo: SymbolRepository) : ApplicationRunner {
