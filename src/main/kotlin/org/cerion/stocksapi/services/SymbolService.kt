@@ -20,7 +20,7 @@ class SymbolService @Autowired constructor(val repo: SymbolRepository) {
     }
 
     fun get(id: String): Symbol? {
-        val result = repo.findById(id).orElseGet {
+        return repo.findById(id).orElseGet {
             logger.info("Looking up $id")
             val lookup = tiingo.getSymbol(id)
             if (lookup != null)
@@ -28,8 +28,6 @@ class SymbolService @Autowired constructor(val repo: SymbolRepository) {
             else
                 null
         }
-
-        return result
     }
 
     fun delete(id: String): Boolean {
@@ -42,5 +40,4 @@ class SymbolService @Autowired constructor(val repo: SymbolRepository) {
 
 }
 
-//fun org.cerion.stocksapi.database.Symbol.convert(): Symbol = Symbol(id, name, exchange)
 fun org.cerion.stocks.core.model.Symbol.convert(): Symbol = Symbol(symbol, name?: "", exchange?: "")
