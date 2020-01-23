@@ -1,0 +1,22 @@
+type Symbol {
+    id: String!
+    name: String!
+    exchange: String!
+
+    daily: [Price]!
+    weekly: [Price]!
+    monthly: [Price]!
+}
+
+type Price {
+    date: String!
+    open: Float!
+    high: Float!
+    low: Float!
+    close: Float!
+    volume: Float!
+}
+
+type Query {
+    symbol(id: String): Symbol!
+}
